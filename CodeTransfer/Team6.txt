@@ -1,0 +1,19 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+              <block type="lexical_variable_set" id="VreuS?6%d@W|XL~M0jo6">
+                <field name="VAR">score</field>
+                <value name="VALUE">
+                  <block type="procedures_callreturn" id="4sxM~FG]8O,e:YL*fa4b" inline="false">
+                    <mutation name="Test">
+                      <arg name="Board"></arg>
+                    </mutation>
+                    <field name="PROCNAME">Test</field>
+                    <value name="ARG0">
+                      <block type="lexical_variable_get" id="lPV5/R`BmX0f~;E+-OK^">
+                        <field name="VAR">board</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+<yacodeblocks ya-version="208" language-version="33"></yacodeblocks>
+</xml>

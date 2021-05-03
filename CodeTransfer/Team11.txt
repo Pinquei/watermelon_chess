@@ -1,0 +1,96 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+              <block type="controls_forEach" id="1t3K=p$!,coLCREdn/8F">
+                <field name="VAR">C4C5C2C3</field>
+                <value name="LIST">
+                  <block type="lists_select_item" id="}a_KYe+w@`FE7)l+1r,3">
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="zkZr8mL9#g#EoTlsb!q=">
+                        <field name="VAR">board</field>
+                      </block>
+                    </value>
+                    <value name="NUM">
+                      <block type="lexical_variable_get" id="umJ=;4~wBEs8}uE.YX*D">
+                        <field name="VAR">yellow_player</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_if" id="agG_T,cGZ1+fvsVc0~D+">
+                    <value name="IF0">
+                      <block type="logic_or" id="]joB`hQ5~/^Al||ZVs{K">
+                        <mutation items="2"></mutation>
+                        <field name="OP">AND</field>
+                        <value name="A">
+                          <block type="math_compare" id="__CyhzMo3fa0Rb8|~R=N">
+                            <field name="OP">NEQ</field>
+                            <value name="A">
+                              <block type="lexical_variable_get" id="B!`L9n.H`BBw6?ppD4vk">
+                                <field name="VAR">C4C5C2C3</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="|lh$6G^eAD~~JuFgos;h">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_compare" id="$+F%~sw~gCtMLBz9O3d:">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="procedures_callreturn" id="6X}W7O)LCMD9]fi|Kv@K" inline="false">
+                                <mutation name="fun_Alive">
+                                  <arg name="fun_Group"></arg>
+                                </mutation>
+                                <field name="PROCNAME">fun_Alive</field>
+                                <value name="ARG0">
+                                  <block type="procedures_callreturn" id="y6r+S#r2h_GPKJ5.q7Vb" inline="false">
+                                    <mutation name="fun_Group">
+                                      <arg name="C6C7"></arg>
+                                    </mutation>
+                                    <field name="PROCNAME">fun_Group</field>
+                                    <value name="ARG0">
+                                      <block type="lexical_variable_get" id="CtQ{QyU-E_cKvXW#lIx@">
+                                        <field name="VAR">C4C5C2C3</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_false" id="F:07D=kiP,Q!{KKVX_=D">
+                                <field name="BOOL">FALSE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="lexical_variable_set" id="+xg`lt`ZALaAlC{iuwU,">
+                        <field name="VAR">score</field>
+                        <value name="VALUE">
+                          <block type="math_add" id="]v_Fbv}4Hm|m2ZWN~+Yl">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="lexical_variable_get" id=":l1S$8zhKU$j.@KB-G=W">
+                                <field name="VAR">score</field>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="math_number" id="m|;Ok_`%4VJ1s)n`zB+!">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+<yacodeblocks ya-version="208" language-version="33"></yacodeblocks>
+</xml>

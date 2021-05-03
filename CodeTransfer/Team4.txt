@@ -1,0 +1,295 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+              <block type="controls_forEach" id="TNdO6Y7#PL~Y^n{w=Kp7">
+                <field name="VAR">C8C9C10C11</field>
+                <value name="LIST">
+                  <block type="lists_select_item" id="h|j*3Be[z2Hu,Vi]HF!y">
+                    <value name="LIST">
+                      <block type="lexical_variable_get" id="l7RzaT:FZU)DaJb-z(g$">
+                        <field name="VAR">global_chess_position</field>
+                      </block>
+                    </value>
+                    <value name="NUM">
+                      <block type="lexical_variable_get" id="HsRv):T4vgE$It.%K~xa">
+                        <field name="VAR">yellow_player</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="controls_if" id="!2(Wz$CLd#a=@aOeW`/1">
+                    <value name="IF0">
+                      <block type="math_compare" id=",i7Yr]-yBXdSIfR:Hvx^">
+                        <field name="OP">NEQ</field>
+                        <value name="A">
+                          <block type="lexical_variable_get" id="P,Ov;/K!k2#VLh}t_c]a">
+                            <field name="VAR">C8C9C10C11</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="c,,59cB1_buz-KP)6$S|">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="controls_if" id="/MBHyYqugT{VM3]%JrRT">
+                        <mutation elseif="2" else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_or" id="crj]R(eWnjN^]_U|L*[9">
+                            <mutation items="2"></mutation>
+                            <field name="OP">OR</field>
+                            <value name="A">
+                              <block type="math_compare" id="?[AZgaZ.tpCPPOx!sfN2">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="P53jA91mIrWSy@mk*uJ%">
+                                    <field name="VAR">C8C9C10C11</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="/#4}}$sLPeekr*~UZb~)">
+                                    <field name="NUM">5</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_or" id="+vnYT2iV%DkBbjblWBXF">
+                                <mutation items="2"></mutation>
+                                <field name="OP">OR</field>
+                                <value name="A">
+                                  <block type="math_compare" id="YXyyIQ=S5rppYX:$cBNw">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="lexical_variable_get" id="XQ|WxND{bzeh8qr+NHOC">
+                                        <field name="VAR">C8C9C10C11</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="c8gVQN%K5m7aYPiwl06w">
+                                        <field name="NUM">6</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_compare" id="0#lPm6meU,V+zrR5*Nkz">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="lexical_variable_get" id="Wd9vY-wiA|F*mb=ALXE$">
+                                        <field name="VAR">C8C9C10C11</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="33/!k#Es-|W?|J|vHYe4">
+                                        <field name="NUM">7</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="lexical_variable_set" id="AHa(%MX+]och-P8vQ0aS">
+                            <field name="VAR">score</field>
+                            <value name="VALUE">
+                              <block type="math_add" id="/%Plg?Z|#/1]q~;5Q5q=" inline="false">
+                                <mutation items="2"></mutation>
+                                <value name="NUM0">
+                                  <block type="math_number" id="qq_,fD~U}Bn#Z{;_2_+q">
+                                    <field name="NUM">100</field>
+                                  </block>
+                                </value>
+                                <value name="NUM1">
+                                  <block type="lexical_variable_get" id="6@S6ZPjK=@*a/p{A;e%W">
+                                    <field name="VAR">score</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <value name="IF1">
+                          <block type="logic_or" id="3iPyAu4uZwqbP$qh`[3@">
+                            <mutation items="2"></mutation>
+                            <field name="OP">OR</field>
+                            <value name="A">
+                              <block type="logic_or" id="Gb)XR_tdei}OUu,`kJ11">
+                                <mutation items="2"></mutation>
+                                <field name="OP">OR</field>
+                                <value name="A">
+                                  <block type="math_compare" id="anUd+/~q_4v}^DIDh*n{">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="lexical_variable_get" id="O4PkK}8JPBAY|f|1F(Q;">
+                                        <field name="VAR">C8C9C10C11</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="S2XC)H*4Cf2|x.A#d$Uo">
+                                        <field name="NUM">9</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_compare" id="-T7E.iS+ZmC1ror1/(cX">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="lexical_variable_get" id="I8/,J|t1VZ#K9jlCLT}|">
+                                        <field name="VAR">C8C9C10C11</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="BbRCwI(#1@^12O;z$5==">
+                                        <field name="NUM">13</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_compare" id="/#a#QW@yuv,YrCI:HgrO">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="o19ak?jOJC~_{?NQAk,H">
+                                    <field name="VAR">C8C9C10C11</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="f2eGXle:I-lG.5),e4JJ">
+                                    <field name="NUM">4</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO1">
+                          <block type="lexical_variable_set" id=";o?ZuEOWz@!d6v1j]AiG">
+                            <field name="VAR">score</field>
+                            <value name="VALUE">
+                              <block type="math_add" id="Vm##KoC}Y+zkY*Mh|(+O" inline="false">
+                                <mutation items="2"></mutation>
+                                <value name="NUM0">
+                                  <block type="lexical_variable_get" id="gw|%%L?K(WAyfzfu#Gh}">
+                                    <field name="VAR">score</field>
+                                  </block>
+                                </value>
+                                <value name="NUM1">
+                                  <block type="math_number" id="MO=jp-[skkZ8TI!LY3XK">
+                                    <field name="NUM">50</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <value name="IF2">
+                          <block type="logic_or" id="H.hZ]t~1=,x:ePD4]~Y:">
+                            <mutation items="2"></mutation>
+                            <field name="OP">OR</field>
+                            <value name="A">
+                              <block type="math_compare" id="xYC9~6g.g]1Eejf..}Za">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="N[}iJ7.pWH7Pa{}$qY/g">
+                                    <field name="VAR">C8C9C10C11</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="Tf[O/SPt64;e(!jAhIC)">
+                                    <field name="NUM">15</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_or" id="+qVH?I]W)TocvmH;VSE=">
+                                <mutation items="2"></mutation>
+                                <field name="OP">OR</field>
+                                <value name="A">
+                                  <block type="math_compare" id="=jt*-X?fT~lQCoz?@d[+">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="lexical_variable_get" id="3a:}w|SOiQ`dJzJz-)9?">
+                                        <field name="VAR">C8C9C10C11</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="2.]-;1Ob5S4J]yc|G#.D">
+                                        <field name="NUM">16</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_compare" id="TI|ZoCXeZp8;1p4`@WVm">
+                                    <field name="OP">EQ</field>
+                                    <value name="A">
+                                      <block type="lexical_variable_get" id="_TM~BJ5o%35j/I}s~xuu">
+                                        <field name="VAR">C8C9C10C11</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="iPj_wpitx!r#D.`tKDah">
+                                        <field name="NUM">17</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO2">
+                          <block type="lexical_variable_set" id="{dB1JrA=R7c$MRw@io|v">
+                            <field name="VAR">score</field>
+                            <value name="VALUE">
+                              <block type="math_add" id="K=qTBidPK4j_8DZIi%oS" inline="false">
+                                <mutation items="2"></mutation>
+                                <value name="NUM0">
+                                  <block type="math_number" id="8a`fon7b_Zw$tL|p_#u:">
+                                    <field name="NUM">25</field>
+                                  </block>
+                                </value>
+                                <value name="NUM1">
+                                  <block type="lexical_variable_get" id="Zv6W,kxw2y,ISa]-.:^n">
+                                    <field name="VAR">score</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="lexical_variable_set" id="aRl08OB@w%Za0.s$A*W`">
+                            <field name="VAR">score</field>
+                            <value name="VALUE">
+                              <block type="math_add" id="%W_/tm=B9`Kp$)(QJY;P" inline="false">
+                                <mutation items="2"></mutation>
+                                <value name="NUM0">
+                                  <block type="math_number" id="98/V/s|(O9$Pm?[h27R{">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <value name="NUM1">
+                                  <block type="lexical_variable_get" id="nHzK1AA(N:vp$J!na~H]">
+                                    <field name="VAR">score</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+<yacodeblocks ya-version="208" language-version="33"></yacodeblocks>
+</xml>
