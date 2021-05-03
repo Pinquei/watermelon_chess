@@ -1,0 +1,14 @@
+C0C1 = None
+C2C3 = None
+C4C5 = None
+
+
+for C0C1 in board[yellow_player]:
+  if C0C1 != 0:
+    for C2C3 in Neighbor(C0C1):
+      if Exist_Chess(C2C3) == 0:
+        score = (score + 20)
+      elif Exist_Chess(C2C3) == 2:
+        score = (score + 15)
+      else:
+        score = (score - 20)

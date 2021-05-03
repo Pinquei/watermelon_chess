@@ -1,0 +1,20 @@
+C0C1C2C3 = None
+C4C5C2C3 = None
+fun_Group = None
+C6C7 = None
+
+
+for C0C1C2C3 in global_chess_position[yellow_player]:
+  if C0C1C2C3 != 0:
+    if C0C1C2C3 == 6 or C0C1C2C3 == 10 or C0C1C2C3 == 11 or C0C1C2C3 == 12 or C0C1C2C3 == 16:
+      score = (score + 100)
+    elif C0C1C2C3 == 4 or C0C1C2C3 == 9 or C0C1C2C3 == 13 or C0C1C2C3 == 18:
+      score = (score + 75)
+    else:
+      score = (score - 25)
+for C4C5C2C3 in board[red_player]:
+  if C4C5C2C3 != 0:
+    if fun_Alive(fun_Group2(C4C5C2C3)) == False:
+      score = (score + 500)
+    elif Exist_Chess(C4C5C2C3) == 1:
+      score = (score + 200)

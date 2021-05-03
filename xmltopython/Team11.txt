@@ -1,0 +1,8 @@
+C4C5C2C3 = None
+fun_Group = None
+C6C7 = None
+
+
+for C4C5C2C3 in board[yellow_player]:
+  if C4C5C2C3 != 0 or fun_Alive(fun_Group2(C4C5C2C3)) == False:
+    score = (score + 100)

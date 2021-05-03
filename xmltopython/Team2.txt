@@ -1,0 +1,18 @@
+C2C3 = None
+fun_Group = None
+C6C7 = None
+
+
+for C2C3 in board[yellow_player]:
+  if C2C3 != 0:
+    if C2C3 == 4:
+      score = (score + 150)
+    if C2C3 == 5 or C2C3 == 6 or C2C3 == 7:
+      score = (score + 100)
+    elif C2C3 == 9 or C2C3 == 10 or C2C3 == 12 or C2C3 == 13:
+      score = (score + 50)
+    else:
+      if C2C3 != 0 and fun_Alive(fun_Group2(C2C3)) == False:
+        score = (score + 1000)
+      if C2C3 == 11:
+        score = (score + 50)

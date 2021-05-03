@@ -1,0 +1,17 @@
+C4C5C2C3 = None
+C6C7 = None
+NeighborC6C7 = None
+
+
+for C4C5C2C3 in board[red_player]:
+  if C4C5C2C3 != 0:
+    if fun_Group(C4C5C2C3) == False:
+      score = (score + 999)
+for C6C7 in board[yellow_player]:
+  for NeighborC6C7 in Neighbor(C6C7):
+    if Exist_Chess(NeighborC6C7) == 0:
+      score = (score + 0)
+    elif Exist_Chess(NeighborC6C7) == 1:
+      score = (score + 99)
+    else:
+      score = (score + 100)

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<style>
+.btn {
+	border: none;
+	outline: none;
+	padding: 10px 16px;
+	background-color: #f1f1f1;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.active, .btn:hover{
+	background-color: #666;
+	color: white;
+}
+</style>
+</head>
+<body>
+
+
+<div id="teamsDIV" class="center">
+  <ul class="pagination">
+    <button class="btn active" onclick="loadPage(this, 11)">1-1</button>
+	<button class="btn" onclick="loadPage(this, 21)">2-1</button>
+	<button class="btn" onclick="loadPage(this, 31)">3-1</button>
+	<button class="btn" onclick="loadPage(this, 41)">4-1</button>
+	<button class="btn" onclick="loadPage(this, 51)">5-1</button>
+	<button class="btn" onclick="loadPage(this, 61)">6-1</button>
+	<button class="btn" onclick="loadPage(this, 71)">7-1</button>
+	<button class="btn" onclick="loadPage(this, 81)">8-1</button>
+	<button class="btn" onclick="loadPage(this, 91)">9-1</button>
+	<button class="btn" onclick="loadPage(this, 101)">10-1</button>
+	<br>
+	<button class="btn" onclick="loadPage(this, 12)">1-2</button>
+	<button class="btn" onclick="loadPage(this, 22)">2-2</button>
+	<button class="btn" onclick="loadPage(this, 32)">3-2</button>
+	<button class="btn" onclick="loadPage(this, 42)">4-2</button>
+	<button class="btn" onclick="loadPage(this, 52)">5-2</button>
+	<button class="btn" onclick="loadPage(this, 62)">6-2</button>
+	<button class="btn" onclick="loadPage(this, 72)">7-2</button>
+	<button class="btn" onclick="loadPage(this, 82)">8-2</button>
+	<button class="btn" onclick="loadPage(this, 92)">9-2</button>
+	<button class="btn" onclick="loadPage(this, 102)">10-2</button>
+  </ul>
+</div>
+<div id="teamsCONTENT">
+	<div id="team1_1" style="display:inline;">
+		Team 1-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team1_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team1_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team2_1" style="display:none;">
+		Team 2-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team2_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team2_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team3_1" style="display:none;">
+		Team 3-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team3_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team3_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team4_1" style="display:none;">
+		Team 4-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team4_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team4_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team5_1" style="display:none;">
+		Team 5-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team5_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team5_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team6_1" style="display:none;">
+		Team 6-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team6_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team6_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team7_1" style="display:none;">
+		Team 7-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team7_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team7_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team8_1" style="display:none;">
+		Team 8-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team8_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team8_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team9_1" style="display:none;">
+		Team 9-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team9_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team9_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team10_1" style="display:none;">
+		Team 10-1 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team10_1">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team10_1">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team1_2" style="display:none;">
+		Team 1-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team1_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team1_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team2_2" style="display:none;">
+		Team 2-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team2_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team2_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team3_2" style="display:none;">
+		Team 3-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team3_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team3_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team4_2" style="display:none;">
+		Team 4-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team4_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team4_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team5_2" style="display:none;">
+		Team 5-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team5_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team5_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team6_2" style="display:none;">
+		Team 6-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team6_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team6_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team7_2" style="display:none;">
+		Team 7-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team7_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team7_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team8_2" style="display:none;">
+		Team 8-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team8_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team8_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team9_2" style="display:none;">
+		Team 9-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team9_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team9_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div id="team10_2" style="display:none;">
+		Team 10-2 上傳
+		<form method="POST" enctype="multipart/form-data" autocomplete="off" action="upload.php">
+			<input type="hidden" name="team" value="team10_2">
+			<input type="file" name="my_file">
+			<br>
+			請輸入小組密碼：
+			<input type="password" name="pwd">
+			<output name="file_exists_team10_2">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+</div>
+<script>
+    function loadPage(obj, n) {
+      var current = document.getElementById("teamsDIV").getElementsByClassName("active");
+	  current[0].className = current[0].className.replace(" active", "");
+	  obj.className += " active";
+	  var teamscontent = document.getElementById("teamsCONTENT").getElementsByTagName('div');
+	  for (var i=0; i<teamscontent.length; i++) {
+		teamscontent[i].style.display = "none";
+	  }
+	  var currentTeam = "team" + Math.floor(n/10) + "_" + n%10;
+	  var currentContent = document.getElementById(currentTeam);
+	  currentContent.style.display="inline";
+    }
+</script>
+
+</body>
+</html>

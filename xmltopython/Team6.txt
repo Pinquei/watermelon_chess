@@ -1,0 +1,4 @@
+Board = None
+
+
+score = (Test(board))

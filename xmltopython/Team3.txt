@@ -1,0 +1,4 @@
+Board = None
+
+
+score = (AI_Score_SmartRandom(board))

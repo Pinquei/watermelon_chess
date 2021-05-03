@@ -1,0 +1,17 @@
+C2C3 = None
+C4C5C12C3 = None
+fun_Group = None
+C6C7 = None
+
+
+for C2C3 in global_chess_position[yellow_player]:
+  if C2C3 != 0:
+    if C2C3 == 9 or C2C3 == 10 or C2C3 == 12 or C2C3 == 13:
+      score = 10
+    elif C2C3 == 15 or C2C3 == 17 or C2C3 == 6:
+      score = 6
+    else:
+      score = 3
+for C4C5C12C3 in board[red_player]:
+  if C4C5C12C3 != 0 and fun_Alive(fun_Group2(C4C5C12C3)) == False:
+    score = (score + 15)

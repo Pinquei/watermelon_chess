@@ -1,0 +1,22 @@
+C2C3 = None
+Neighbor = None
+C6C7 = None
+
+
+for C2C3 in board[yellow_player]:
+  if C2C3 != 0:
+    for Neighbor in Neighbor2(C2C3):
+      if Exist_Chess(Neighbor) == 0:
+        score = (score + 200)
+      elif Exist_Chess(Neighbor) == 2:
+        score = (score + 100)
+      else:
+        score = (score + 50)
+for C2C3 in global_chess_position[yellow_player]:
+  if C2C3 != 0:
+    if C2C3 <= 7:
+      score = (score + 150)
+    elif C2C3 <= 15:
+      score = (score + 50)
+    else:
+      score = (score + 0)

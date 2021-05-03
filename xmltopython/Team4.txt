@@ -1,0 +1,13 @@
+C8C9C10C11 = None
+
+
+for C8C9C10C11 in global_chess_position[yellow_player]:
+  if C8C9C10C11 != 0:
+    if C8C9C10C11 == 5 or C8C9C10C11 == 6 or C8C9C10C11 == 7:
+      score = (100 + score)
+    elif C8C9C10C11 == 9 or C8C9C10C11 == 13 or C8C9C10C11 == 4:
+      score = (score + 50)
+    elif C8C9C10C11 == 15 or C8C9C10C11 == 16 or C8C9C10C11 == 17:
+      score = (25 + score)
+    else:
+      score = (1 + score)
