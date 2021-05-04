@@ -4,7 +4,7 @@ import os
 from unzip_and_return import aia_to_xml
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER']=r'C:\Users\pierc\Desktop\BebrasCampServer\upload'
+# app.config['UPLOAD_FOLDER']=r'C:\Users\pierc\Desktop\BebrasCampServer\upload'
 # def function(file_name):
 #     pass
 
