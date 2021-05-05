@@ -21,7 +21,7 @@ def save():
     if request.method == 'POST':
         code = request.form['code']
         team_name = request.form['team_name']
-        with open(team_name, 'w') as f:
+        with open(team_name+'.txt', 'w') as f:
             f.write(code)
 
 app.run(host='0.0.0.0', port=5000)
