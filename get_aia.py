@@ -10,17 +10,16 @@ app = Flask(__name__)
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    if request.method == 'POST':
-        f = request.files['upload']
-        f.save(secure_filename(f.filename))
-        result = aia_to_xml(secure_filename(f.filename))
-        os.remove(secure_filename(f.filename))
+    f = request.files['upload']
+    f.save(secure_filename(f.filename))
+    result = aia_to_xml(secure_filename(f.filename)[0:-4])
+    os.remove(secure_filename(f.filename))
     return result
 
 @app.route('/save',methods=['POST'])
 def save():
     if request.method == 'POST':
-        code = request.form['code']
+        code = request.form('code')
         team_name = request.form['team_name']
         with open(team_name, 'w') as f:
             f.write(code)

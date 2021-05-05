@@ -7,7 +7,7 @@ import os
 # 執行解壓縮
 def aia_to_xml(file_name):
     aia_file_name = file_name
-    unzip = zipfile.ZipFile(aia_file_name + '.aia', 'r') #主要解壓縮的Function
+    unzip = zipfile.ZipFile(aia_file_name+'.aia', 'r') #主要解壓縮的Function
     for names in unzip.namelist():
         # 所要的block在Screen2的部分，這裡只把Screen2.bky抓出來
         if re.search("Screen2.bky", names):
