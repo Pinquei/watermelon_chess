@@ -19,7 +19,7 @@ def upload():
 @app.route('/save',methods=['POST'])
 def save():
     if request.method == 'POST':
-        code = request.form('code')
+        code = request.form['code']
         team_name = request.form['team_name']
         with open(team_name, 'w') as f:
             f.write(code)
