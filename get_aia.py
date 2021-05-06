@@ -24,7 +24,7 @@ def save():
         with open(team_name+'.txt', 'w') as f:
             f.write(code)
 
-app.run(host='0.0.0.0', port=5000)
+app.run(host='194.122.164.194', port=5000)
 
 # from flask import Flask
 # from flask_uploads import UploadSet, IMAGES, configure_uploads
