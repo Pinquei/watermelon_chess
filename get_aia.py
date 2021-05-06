@@ -13,7 +13,7 @@ def upload():
     f = request.files['upload']
     f.save(secure_filename(f.filename))
     result = aia_to_xml(secure_filename(f.filename)[0:-4])
-    os.remove(secure_filename(f.filename))
+    #os.remove(secure_filename(f.filename))
     return result
 
 @app.route('/save',methods=['POST'])
