@@ -367,6 +367,8 @@ def AI_Play (player):
         process['moving'] = "Yellow"
     process['movingBoardIndex'] = global_chess_position[player][best_choice]
     process['movingTo'] = move_position
+    array['process'].append(dict(process))
+    #json_array="""{"teamRed": "", "teamYellow": "", "process": [], "totalSteps": 0, "win": ""}"""
     print('Now:', global_chess_position)
     return
 
@@ -379,9 +381,11 @@ def main ():
     winner = -1
     now_turn = global_red_side
     global array
+    global process
     print('Start:', global_chess_position)
     try:
         while winner == -1:
+
             AI_Play(now_turn)
             winner = Winner()
             if now_turn == global_red_side:
@@ -419,6 +423,7 @@ def main ():
             array['win'] = "Even"
         json_file = json.dumps(array, indent=4)
         file = open('BattleReport/Report.json', "w")
+
         file.write(json_file)
         file.close()
     return
