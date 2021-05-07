@@ -1,0 +1,9 @@
+
+    return score
+
+def AI_Score_Yellow_Side(board):
+    score = 0
+    red_player=1
+    yellow_player=0
+
+

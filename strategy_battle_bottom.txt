@@ -1,0 +1,165 @@
+
+    return score
+
+# AI_Score_Random definition, use for testing, on yellow side, use for test timer too
+def AI_Score_Random (board):
+    timer = randint(0, 2)
+    print('yellow side timer:', timer)
+    time.sleep(timer)
+    return 100
+
+# AI_Score_SmartRandom definition, use for testing, on red side
+def AI_Score_SmartRandom_Red (board):
+    score = 0
+    player = global_yellow_side # Opponent Color
+    chess_search = [0, 0, 0, 0, 0, 0]
+    for i in range(6):
+        if board[player][i] == 0:
+            chess_search[i] = 1
+    for chess in board[player]:
+        if chess !=0 and chess_search[(board[player]).index(chess)] == 0:
+            group = Group(chess, player, [])
+            for member in group:
+                chess_search[(board[player]).index(member)] = 1
+            if not Alive(board, group):
+                score = score + len(group)
+                for member in group:
+                    board[player][(board[player]).index(member)] = 0
+    return score
+
+# AI_Score_SmartRandom definition, use for testing, on yellow side
+def AI_Score_SmartRandom_Yellow (board):
+    score = 0
+    player = global_red_side # Opponent Color
+    chess_search = [0, 0, 0, 0, 0, 0]
+    for i in range(6):
+        if board[player][i] == 0:
+            chess_search[i] = 1
+    for chess in board[player]:
+        if chess !=0 and chess_search[(board[player]).index(chess)] == 0:
+            group = Group(chess, player, [])
+            for member in group:
+                chess_search[(board[player]).index(member)] = 1
+            if not Alive(board, group):
+                score = score + len(group)
+                for member in group:
+                    board[player][(board[player]).index(member)] = 0
+    return score
+
+
+
+
+# AI_Play definition
+@func_set_timeout(1000)
+def AI_Play (player):
+    chess_search = []
+    chess_index = randint(0, 5)
+    best_choice = 0
+    move_position = 0
+    max_score = -9999
+    global process
+    global array
+    while len(chess_search) < 6:
+        if not chess_index in chess_search:
+            chess_search.append(chess_index)
+            if global_chess_position[player][chess_index] != 0:
+                connection = Neighbor(global_chess_position[player][chess_index])
+                connection_search = []
+                score = 0
+                move = connection[randint(0, len(connection) - 1)]
+                while len(connection_search) < len(connection):
+                    if not move in connection_search:
+                        connection_search.append(move)
+                        if not ((move in global_chess_position[global_red_side]) or (move in global_chess_position[global_yellow_side])):
+                            expected_board = copy.deepcopy(global_chess_position)
+                            expected_board[player][chess_index] = move
+                            if player == global_red_side:
+                                score = AI_Score_Red_Side(expected_board)
+                                # score = AI_Score_SmartRandom_Red (expected_board) # Use for test timer
+                                # score = Red_Side(expected_board)
+                            else:
+                                score = AI_Score_Yellow_Side(expected_board)
+                                # score = AI_Score_SmartRandom_Yellow(expected_board) # Use for test timer
+                                # score = AI_Score_Random(expected_board)
+                                # score = Yellow_Side(expected_board)
+                            if score > max_score:
+                                best_choice = chess_index
+                                move_position = move
+                                max_score = score
+                                # print(best_choice, move_position, max_score)
+                    move = connection[randint(0, len(connection) - 1)]
+        chess_index = randint(0, 5)
+    Update_Condition(player, best_choice, move_position)
+    process['step'] = process['step'] + 1
+    array['totalSteps'] = array['totalSteps'] + 1
+    if player == global_red_side:
+        process['moving'] = "Red"
+    else:
+        process['moving'] = "Yellow"
+    process['movingBoardIndex'] = global_chess_position[player][best_choice]
+    process['movingTo'] = move_position
+    array['process'].append(dict(process))
+    #json_array="""{"teamRed": "", "teamYellow": "", "process": [], "totalSteps": 0, "win": ""}"""
+    print('Now:', global_chess_position)
+    return
+
+
+# In[5]:
+
+
+# This block will define main function
+def main ():
+    winner = -1
+    now_turn = global_red_side
+    global array
+    global process
+    print('Start:', global_chess_position)
+    try:
+        while winner == -1:
+
+            AI_Play(now_turn)
+            winner = Winner()
+            if now_turn == global_red_side:
+                now_turn = global_yellow_side
+            else:
+                now_turn = global_red_side
+            if global_trash_move == 200:
+                print("連續空步已達200步！")
+                if global_remain_chess[global_red_side] > global_remain_chess[global_yellow_side]:
+                    winner = global_red_side
+                    print("紅方剩子較多")
+                elif global_remain_chess[global_red_side] < global_remain_chess[global_yellow_side]:
+                    winner = global_yellow_side
+                    print("黃方剩子較多")
+                break
+
+    except func_timeout.exceptions.FunctionTimedOut:
+        if now_turn == global_red_side:
+            print("紅方超時，判輸")
+            winner = global_yellow_side
+        else:
+            print("黃方超時，判輸")
+            winner = global_red_side
+
+    finally:
+
+        if winner == global_red_side:
+            print("紅方獲勝！")
+            array['win'] = "Red"
+        elif winner == global_yellow_side:
+            print("黃方獲勝！")
+            array['win'] = "Yellow"
+        else:
+            print("雙方和局")
+            array['win'] = "Even"
+        json_file = json.dumps(array, indent=4)
+        file = open('BattleReport/Report.json', "w")
+
+        file.write(json_file)
+        file.close()
+    return
+
+
+
+
+main()
