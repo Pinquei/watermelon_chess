@@ -7,7 +7,7 @@ for i in range(1, 13):
             filehead = open('strategy_battle_head.txt', encoding="utf-8")
             filemiddle = open('strategy_battle_middle.txt', encoding="utf-8")
             filebottom = open('strategy_battle_bottom.txt', encoding="utf-8")
-            file_write = open('combine_code/Team' + str(i) + ' vs Team' + str(j) + '.txt', 'w', encoding="utf-8")
+            file_write = open('combine_code/Team' + str(i) + ' vs Team' + str(j) + '.py', 'w', encoding="utf-8")
             contents = file.readlines()
             contents2 = file2.readlines()
             contentshead = filehead.readlines()
