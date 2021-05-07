@@ -24,6 +24,7 @@ def aia_to_xml(file_name):
     return_word='<xml xmlns="https://developers.google.com/blockly/xml">'
     # 注意一定要加encoding="utf-8"，要不然會error
     file = open('WatermelonChess/Team' + aia_file_name + '.bky', 'r', encoding="utf-8")
+
     file_write = open('CodeTransfer/Team' + aia_file_name + '.txt', 'w')
     contents = file.readlines()
     # 把盤面評分函式的部分，開頭和結束分別是第幾行找到，存在line_id_start和line_id_end
@@ -71,8 +72,10 @@ def aia_to_xml(file_name):
     return_word=return_word+'<yacodeblocks ya-version="208" language-version="33"></yacodeblocks></xml>'
     print(return_word)
     file_write.close()
+    os.remove('WatermelonChess/Team' + aia_file_name + '.bky')
     return return_word
 
+aia_to_xml('WatermelonChess_Team7')
 
 
 
