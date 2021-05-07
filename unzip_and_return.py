@@ -75,7 +75,7 @@ def aia_to_xml(file_name):
     os.remove('WatermelonChess/Team' + aia_file_name + '.bky')
     return return_word
 
-aia_to_xml('WatermelonChess_Team7')
+
 
 
 
