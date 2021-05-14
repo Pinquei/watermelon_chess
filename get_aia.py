@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,jsonify
 from werkzeug import secure_filename
 import os
 from unzip_and_return import aia_to_xml
 from flask_cors import CORS, cross_origin
 from combine import combine
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -34,10 +35,10 @@ def save():
 def battle():
     red = request.form['red_name']
     yellow= request.form['yellow_name']
-    exec(open(str(red)+' vs Team'+str(yellow)+'.py', encoding="utf-8").read())
-    file = open('./xmltopython/BattleReport/Report.json', 'r', encoding="utf-8")
-    print(file)
-    return file
+    exec(open('./combine_code/'+str(red)+' vs '+str(yellow)+'.py', encoding="utf-8").read(),globals())
+    with open('./combine_code/BattleReport/Report.json', 'r', encoding="utf-8") as json_file:
+        data = json.load(json_file)
+        return jsonify(data)
 
 
 app.run(host='0.0.0.0', port=5000)
