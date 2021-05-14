@@ -75,7 +75,7 @@ def aia_to_xml(file_name,team_number):
     os.remove('WatermelonChess/' + team_number + '.bky')
     return return_word
 
-aia_to_xml('today',team_number='team 3')
+
 
 
 
