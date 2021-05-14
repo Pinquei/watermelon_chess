@@ -5,7 +5,7 @@ import shutil
 import os
 # 這裡預設希望上傳檔案時自動將.aia檔改名成WatermelonChess_TeamX.aia
 # 執行解壓縮
-def aia_to_xml(file_name):
+def aia_to_xml(file_name,team_number):
     aia_file_name = file_name
     unzip = zipfile.ZipFile(aia_file_name+'.aia', 'r') #主要解壓縮的Function
     for names in unzip.namelist():
@@ -18,14 +18,14 @@ def aia_to_xml(file_name):
     # 把Screen2.bky移到統一資料夾裡，並改名成TeamX.bky
     shutil.move(target, 'WatermelonChess/')
     shutil.rmtree(aia_file_name + '/')
-    os.rename('WatermelonChess/Screen2.bky', 'WatermelonChess/Team' + aia_file_name + '.bky')
+    os.rename('WatermelonChess/Screen2.bky', 'WatermelonChess/' + team_number + '.bky')
 
     chinese_to_var = []
     return_word='<xml xmlns="https://developers.google.com/blockly/xml">'
     # 注意一定要加encoding="utf-8"，要不然會error
-    file = open('WatermelonChess/Team' + aia_file_name + '.bky', 'r', encoding="utf-8")
+    file = open('WatermelonChess/' + team_number + '.bky', 'r', encoding="utf-8")
 
-    file_write = open('CodeTransfer/Team' + aia_file_name + '.txt', 'w')
+    file_write = open('CodeTransfer/' + team_number + '.txt', 'w')
     contents = file.readlines()
     # 把盤面評分函式的部分，開頭和結束分別是第幾行找到，存在line_id_start和line_id_end
     line_id = 0
@@ -72,9 +72,10 @@ def aia_to_xml(file_name):
     return_word=return_word+'<yacodeblocks ya-version="208" language-version="33"></yacodeblocks></xml>'
     print(return_word)
     file_write.close()
-    os.remove('WatermelonChess/Team' + aia_file_name + '.bky')
+    os.remove('WatermelonChess/' + team_number + '.bky')
     return return_word
 
+aia_to_xml('today',team_number='team 3')
 
 
 

@@ -2,17 +2,21 @@ from flask import Flask, render_template, request
 from werkzeug import secure_filename
 import os
 from unzip_and_return import aia_to_xml
+from flask_cors import CORS, cross_origin
+from combine import combine
 
 app = Flask(__name__)
+CORS(app)
 # app.config['UPLOAD_FOLDER']=r'C:\Users\pierc\Desktop\BebrasCampServer\upload'
 # def function(file_name):
 #     pass
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    f = request.files['upload']
+    f = request.files['files']
+    team_number=request.form['team_name']
     f.save(secure_filename(f.filename))
-    result = aia_to_xml(secure_filename(f.filename)[0:-4])
+    result = aia_to_xml(secure_filename(f.filename)[0:-4],team_number)
     #os.remove(secure_filename(f.filename))
     return result
 
@@ -21,8 +25,20 @@ def save():
     if request.method == 'POST':
         code = request.form['code']
         team_name = request.form['team_name']
-        with open(team_name+'.txt', 'w') as f:
+        with open('./xmltopython/'+team_name+'.txt', 'w') as f:
             f.write(code)
+            combine()
+            return 'ok'
+
+@app.route('/battle',methods=['POST'])
+def battle():
+    red = request.form['red_name']
+    yellow= request.form['yellow_name']
+    exec(open(str(red)+' vs Team'+str(yellow)+'.py', encoding="utf-8").read())
+    file = open('./xmltopython/BattleReport/Report.json', 'r', encoding="utf-8")
+    print(file)
+    return file
+
 
 app.run(host='0.0.0.0', port=5000)
 
