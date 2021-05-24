@@ -50,7 +50,7 @@ def AI_Score_SmartRandom_Yellow (board):
 
 
 # AI_Play definition
-@func_set_timeout(1000)
+@func_set_timeout(10)
 def AI_Play (player):
     chess_search = []
     chess_index = randint(0, 5)
