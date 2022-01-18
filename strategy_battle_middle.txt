@@ -1,9 +1,12 @@
 
+    global_red_side=0
+    global_yellow_side=1
     return score
 
 def AI_Score_Yellow_Side(board):
     score = 0
-    red_player=1
-    yellow_player=0
-
+    global global_red_side,global_yellow_side
+    global_red_side=0
+    global_yellow_side=1
+    temp_board = board
 

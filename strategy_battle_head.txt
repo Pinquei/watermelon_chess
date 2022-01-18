@@ -14,6 +14,7 @@ import json
 
 # need to use deepcopy for multi-dim list
 import copy
+import datetime
 
 # import every team's scoring function here
 # from team1 import ... as AI_Score_Red_Side
@@ -52,7 +53,10 @@ global_board_connection = [[],
                            [15, 18, 21],
                            [17, 18, 21],
                            [18, 19, 20]]
-
+current_player=0
+next_player=0
+global_next_player=0
+global_current_player=0
 # chess position declaration
 # If the chess got eaten, will turn to 0
 global_chess_position = [[1, 2, 3, 4, 5, 7],
@@ -65,17 +69,17 @@ global_remain_chess = [6, 6]
 global_trash_move = 0
 
 # Save in Json Array
-json_array = """{"teamRed": "", "teamYellow": "", "process": [], "totalSteps": 0, "win": ""}"""
+json_array = """{"process": [], "totalSteps": 0, "win": ""}"""
 array = json.loads(json_array)
-process = {"step": 0, "moving": "", "movingBoardIndex": 0, "movingTo": 0, "kill": []}
+process = {"step": 0, "moving": "","movingBoardIndex":0,"movingChessIndex": 0,"currentBoard":"","movingTo": 0, "kill": []}
 # Test the variables declare properly
-# print ("global red side", global_red_side)
-# print ("global yellow side", global_yellow_side)
-# print ("global board connection", global_board_connection)
-# print ("check board connection for index 0", global_board_connection[0])
-# print ("board connection for index 12", global_board_connection[12])
-# print ("global chess position", global_chess_position)
-# print ("global remain chess", global_remain_chess)
+# # print ("global red side", global_red_side)
+# # print ("global yellow side", global_yellow_side)
+# # print ("global board connection", global_board_connection)
+# # print ("check board connection for index 0", global_board_connection[0])
+# # print ("board connection for index 12", global_board_connection[12])
+# # print ("global chess position", global_chess_position)
+# # print ("global remain chess", global_remain_chess)
 
 
 # In[2]:
@@ -97,7 +101,6 @@ def Exist_Chess (pos):
     elif pos in global_chess_position[global_yellow_side]:
         result = global_yellow_side
     return result
-
 # Group function
 def Group (pos, player, group):
     group.append(pos)
@@ -155,10 +158,10 @@ def fun_Alive(group):
 # Move_Chess definition
 def Move_Chess (player, index, position):
     global global_chess_position
-    if (player == global_red_side):
-        print('Red side move:', global_chess_position[player][index], 'to', position)
-    else:
-        print('Yellow side move:', global_chess_position[player][index], 'to', position)
+    # if (player == global_red_side):
+        # print('Red side move:', global_chess_position[player][index], 'to', position)
+    # else:
+        # print('Yellow side move:', global_chess_position[player][index], 'to', position)
     global_chess_position[player][index] = position
     return
 
@@ -183,10 +186,10 @@ def Chess_Eliminate (player):
                 global_remain_chess[player] = global_remain_chess[player] - len(group)
                 for member in group:
                     global_chess_position[player][(global_chess_position[player]).index(member)] = 0
-                    if player == global_red_side:
-                        print('Red Side Chess at position', member, 'has got eaten.')
-                    else:
-                        print('Yellow Side Chess at position', member, 'has got eaten.')
+                    # if player == global_red_side:
+                        # print('Red Side Chess at position', member, 'has got eaten.')
+                    # else:
+                        # print('Yellow Side Chess at position', member, 'has got eaten.')
                     process['kill'].append(member)
     return eliminate
 
@@ -224,8 +227,10 @@ def Update_Condition (player, index, position):
 
 def AI_Score_Red_Side(board):
     score = 0
-    red_player=0
-    yellow_player=1
+    global global_red_side,global_yellow_side
+    global_red_side=1
+    global_yellow_side=0
+    temp_board=board
 
 
 

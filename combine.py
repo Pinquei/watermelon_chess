@@ -2,7 +2,7 @@ import os
 
 def combine():
     entries = os.listdir('xmltopython')
-    print(entries)
+    #print(entries)
 
     for i in entries:
         for j in entries:

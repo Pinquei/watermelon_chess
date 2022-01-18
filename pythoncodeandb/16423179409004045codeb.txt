@@ -1,0 +1,20 @@
+C0C1C2C3 = None
+C4C5C2C3 = None
+C6C7 = None
+C8C9 = None
+
+
+for C0C1C2C3 in temp_board[global_yellow_side]:
+  if C0C1C2C3 != 0:
+    if C0C1C2C3 == 11:
+      score = (score + 100)
+    elif C0C1C2C3 == 4 or C0C1C2C3 == 9 or C0C1C2C3 == 13 or C0C1C2C3 == 18:
+      score = (score + 50)
+    elif C0C1C2C3 == 6 or C0C1C2C3 == 10 or C0C1C2C3 == 12 or C0C1C2C3 == 16:
+      score = (score + 20)
+    else:
+      score = (score + 0)
+for C4C5C2C3 in board[global_red_side]:
+  if C4C5C2C3 != 0:
+    if fun_Alive(fun_Group(C4C5C2C3)) == False:
+      score = (score + 80)

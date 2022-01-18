@@ -3,9 +3,19 @@ import re
 import glob
 import shutil
 import os
+from xml.dom import minidom
+
+def format_xml(input_str):
+    str = minidom.parseString(input_str)
+    output_str = str.toprettyxml(indent="    ")
+    return output_str
+
 # 這裡預設希望上傳檔案時自動將.aia檔改名成WatermelonChess_TeamX.aia
 # 執行解壓縮
 def aia_to_xml(file_name,team_number):
+    if os.path.exists('WaTErmelonChess/Screen2.bky'):
+        os.remove('WaTErmelonChess/Screen2.bky')
+
     aia_file_name = file_name
     unzip = zipfile.ZipFile(aia_file_name+'.aia', 'r') #主要解壓縮的Function
     for names in unzip.namelist():
@@ -16,16 +26,27 @@ def aia_to_xml(file_name,team_number):
     unzip.close()
     target = glob.glob(aia_file_name + "/*/*/*/*/Screen2.bky")[0]
     # 把Screen2.bky移到統一資料夾裡，並改名成TeamX.bky
-    shutil.move(target, 'WatermelonChess/')
+    shutil.move(target, 'WaTErmelonChess/')
     shutil.rmtree(aia_file_name + '/')
-    os.rename('WatermelonChess/Screen2.bky', 'WatermelonChess/' + team_number + '.bky')
+    file = open('WaTErmelonChess/Screen2.bky','r',encoding="utf-8")
+    contents=file.readlines()
+    if len(contents)<20:
+        ostr=''
+        for line in contents:
+            ostr=ostr+line
+        output=format_xml(ostr)
+        file_write=open('WaTErmelonChess/Screen2.bky','w',encoding="utf-8")
+        file_write.write(output)
+        file_write.close()
+    file.close()
+    os.rename('WaTErmelonChess/Screen2.bky', 'WaTErmelonChess/' + team_number + '.bky')
 
     chinese_to_var = []
     return_word='<xml xmlns="https://developers.google.com/blockly/xml">'
     # 注意一定要加encoding="utf-8"，要不然會error
-    file = open('WatermelonChess/' + team_number + '.bky', 'r', encoding="utf-8")
+    file = open('WaTErmelonChess/' + team_number + '.bky', 'r', encoding="utf-8",errors='ignore')
 
-    file_write = open('CodeTransfer/' + team_number + '.txt', 'w')
+    file_write = open('CodeTransfer/' + team_number[11:16]+ '.txt', 'w',errors='ignore')
     contents = file.readlines()
     # 把盤面評分函式的部分，開頭和結束分別是第幾行找到，存在line_id_start和line_id_end
     line_id = 0
@@ -46,15 +67,18 @@ def aia_to_xml(file_name,team_number):
     # 把盤面評分函式的blocks複製到新文件，並且加上開頭結尾以利之後轉換用
     file_write.write(repr('<xml xmlns="https://developers.google.com/blockly/xml">')[1:-1] + '\n')
     for i in range(line_id_start+20, line_id_end+1):
-        contents[i] = contents[i].replace("global 棋子位置", "global_chess_position")
+        contents[i] = contents[i].replace("global 棋子位置", "temp_board")
         contents[i] = contents[i].replace("分數", "score")
-        contents[i] = contents[i].replace("生存", "fun_Alive")
+        contents[i] = contents[i].replace("_生存", "fun_Alive")
         contents[i] = contents[i].replace("_群組", "fun_Group")
-        contents[i] = contents[i].replace("global 電腦", "yellow_player")
-        contents[i] = contents[i].replace("global 玩家", "red_player")
-        contents[i] = contents[i].replace("是否有棋", "Exist_Chess")
+        contents[i] = contents[i].replace("global 電腦", "global_yellow_side")
+        contents[i] = contents[i].replace("global 玩家", "global_red_side")
+        contents[i] = contents[i].replace("_是否有棋", "Exist_Chess")
         contents[i] = contents[i].replace("盤面", "board")
         contents[i] = contents[i].replace("_鄰居", "Neighbor")
+        contents[i] = contents[i].replace("當前下棋者","current_player")
+        contents[i] = contents[i].replace("下位下棋者", "next_player")
+        print('test')
 
         for ch in contents[i]:
             if (u'\u4e00' <= ch and ch <= u'\u9fff') and ch not in chinese_to_var:
@@ -72,7 +96,7 @@ def aia_to_xml(file_name,team_number):
     return_word=return_word+'<yacodeblocks ya-version="208" language-version="33"></yacodeblocks></xml>'
     print(return_word)
     file_write.close()
-    os.remove('WatermelonChess/' + team_number + '.bky')
+    os.remove('WaTErmelonChess/' + team_number + '.bky')
     return return_word
 
 

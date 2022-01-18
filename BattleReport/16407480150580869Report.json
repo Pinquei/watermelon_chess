@@ -1,0 +1,32 @@
+{
+    "process": [
+        {
+            "step": 1,
+            "moving": "Red",
+            "movingBoardIndex": 7,
+            "movingChessIndex": 5,
+            "currentBoard": [
+                [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    14
+                ],
+                [
+                    15,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                ]
+            ],
+            "movingTo": 14,
+            "kill": []
+        }
+    ],
+    "totalSteps": 1,
+    "win": "Even"
+}

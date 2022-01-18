@@ -1,0 +1,11 @@
+C0C1C2C3 = None
+C4C5 = None
+
+
+for C0C1C2C3 in temp_board[global_red_side]:
+  if C0C1C2C3 != 0:
+    if C0C1C2C3[18]:
+      if Exist_Chess(C0C1C2C3[16] or C0C1C2C3[11]):
+        score = (score + 10)
+      else:
+        score = (score - 10)

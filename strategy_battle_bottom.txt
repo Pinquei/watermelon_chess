@@ -1,10 +1,12 @@
 
+    global_red_side=0
+    global_yellow_side=1
     return score
 
 # AI_Score_Random definition, use for testing, on yellow side, use for test timer too
 def AI_Score_Random (board):
     timer = randint(0, 2)
-    print('yellow side timer:', timer)
+    # print('yellow side timer:', timer)
     time.sleep(timer)
     return 100
 
@@ -86,21 +88,25 @@ def AI_Play (player):
                                 best_choice = chess_index
                                 move_position = move
                                 max_score = score
-                                # print(best_choice, move_position, max_score)
+                                # # print(best_choice, move_position, max_score)
                     move = connection[randint(0, len(connection) - 1)]
         chess_index = randint(0, 5)
+    process['movingChessIndex']=best_choice
+    process['movingBoardIndex']=global_chess_position[player][best_choice]
     Update_Condition(player, best_choice, move_position)
+    a=global_chess_position[0]
+    b=global_chess_position[1]
+    process['currentBoard']=[[a[0],a[1],a[2],a[3],a[4],a[5]],[b[0],b[1],b[2],b[3],b[4],b[5]]]
     process['step'] = process['step'] + 1
     array['totalSteps'] = array['totalSteps'] + 1
     if player == global_red_side:
         process['moving'] = "Red"
     else:
         process['moving'] = "Yellow"
-    process['movingBoardIndex'] = global_chess_position[player][best_choice]
     process['movingTo'] = move_position
     array['process'].append(dict(process))
     #json_array="""{"teamRed": "", "teamYellow": "", "process": [], "totalSteps": 0, "win": ""}"""
-    print('Now:', global_chess_position)
+    # print('Now:', global_chess_position)
     return
 
 
@@ -113,7 +119,7 @@ def main ():
     now_turn = global_red_side
     global array
     global process
-    print('Start:', global_chess_position)
+    # print('Start:', global_chess_position)
     try:
         while winner == -1:
 
@@ -124,25 +130,24 @@ def main ():
             else:
                 now_turn = global_red_side
             if global_trash_move == 200:
-                print("連續空步已達200步！")
+                # print("連續空步已達200步！")
                 if global_remain_chess[global_red_side] > global_remain_chess[global_yellow_side]:
                     winner = global_red_side
-                    print("紅方剩子較多")
+                    # print("紅方剩子較多")
                 elif global_remain_chess[global_red_side] < global_remain_chess[global_yellow_side]:
                     winner = global_yellow_side
-                    print("黃方剩子較多")
+                    # print("黃方剩子較多")
                 break
 
     except func_timeout.exceptions.FunctionTimedOut:
         if now_turn == global_red_side:
-            print("紅方超時，判輸")
+            # print("紅方超時，判輸")
             winner = global_yellow_side
         else:
-            print("黃方超時，判輸")
+            # print("黃方超時，判輸")
             winner = global_red_side
 
     finally:
-
         if winner == global_red_side:
             print("紅方獲勝！")
             array['win'] = "Red"
@@ -153,8 +158,8 @@ def main ():
             print("雙方和局")
             array['win'] = "Even"
         json_file = json.dumps(array, indent=4)
-        file = open('BattleReport/Report.json', "w")
-
+        print(req_time_two)
+        file = open('BattleReport/{}Report.json'.format(req_time_two), "w")
         file.write(json_file)
         file.close()
     return
