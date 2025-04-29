@@ -62,26 +62,6 @@
     * **用途**: 一個獨立的（或較早版本的）腳本，用於將特定文件夾中的 Blockly 程式碼（`.txt` 格式）裡的中文字元替換為 `C` 開頭的代碼。
     * **注意**: 其部分功能與 `unzip_and_return.py` 重疊，目前可能未在主流程 (`api.py`) 中直接使用。
 
-## 目錄結構 (推測)
-
-```
-.
-├── api.py                     # 主要 Flask 應用程式
-├── unzip_and_return.py        # AIA 處理工具
-├── combine.py                 # (輔助/舊版) 程式碼組合工具
-├── code_transfer.py           # (輔助/舊版) 變數名稱轉換工具
-├── strategy_battle.py         # 核心遊戲邏輯參考
-├── strategy_battle_head.txt   # 對戰腳本模板 (頭部)
-├── strategy_battle_middle.txt # 對戰腳本模板 (中部)
-├── strategy_battle_bottom.txt # 對戰腳本模板 (底部)
-├── WaTErmelonChess/           # 存放解壓後的 .bky 檔案 (臨時)
-├── CodeTransfer/              # 存放處理後的 Blockly XML 或 Python 程式碼片段 (臨時)
-├── pythoncodeandb/            # 存放從前端接收的 AI 程式碼 (臨時)
-├── combine_code/              # 存放組合生成的完整對戰腳本 (臨時)
-├── BattleReport/              # 存放生成的對戰報告 JSON 檔案 (臨時/永久?)
-├── venv/                      # (建議) Python 虛擬環境
-└── requirements.txt           # (建議) 專案依賴列表
-```
 
 ## 如何運行 (基本步驟)
 
